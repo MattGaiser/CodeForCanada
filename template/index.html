@@ -1,0 +1,31 @@
+<html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+<h1>CodeForCanada Data Skill Test Matthew Gaiser</h1>
+
+<canvas id="chart" width="500" height="400"></canvas>
+<script>
+   var thedata = [
+            {% for values,label,colours in set %}
+                {
+                    value: {{values}},
+                    label: "{{label}}",
+                    color : "{{colours}}"
+                },
+                {% endfor %}
+         ];
+   var mychart = document.getElementById("chart").getContext("2d");
+    new Chart(document.getElementById("chart").getContext("2d")).Pie(thedata);
+</script>
+<br>
+An attempt at the table
+<br>
+<table>
+{% for row in tableList %}
+    <tr>
+      <td>  {{ row[0] }}  </td>
+      <td>  {{ row[1] }}  </td>
+        <td>    {{ row[2] }}     </td>
+    </tr>
+{% endfor %}
+    </table>
+</html>
